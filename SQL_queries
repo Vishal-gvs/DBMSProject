@@ -1,0 +1,145 @@
+create database library;
+use library;
+CREATE TABLE AuthenticationSystem (
+    LoginId INT PRIMARY KEY,
+    Password VARCHAR(255)
+);
+CREATE TABLE Staff (
+    Staff_id INT PRIMARY KEY,
+    Name VARCHAR(100),
+    LoginId INT,
+    FOREIGN KEY (LoginId) REFERENCES AuthenticationSystem(LoginId)
+);
+CREATE TABLE Readers (
+    User_ID INT PRIMARY KEY,
+    Firstname VARCHAR(50),
+    Lastname VARCHAR(50),
+    Email VARCHAR(100),
+    Phone_no VARCHAR(15),
+    Address VARCHAR(255),
+    Name VARCHAR(100)
+);
+CREATE TABLE Publisher (
+    Publisher_id INT PRIMARY KEY,
+    Name VARCHAR(100),
+    YearOfPublication INT
+);
+CREATE TABLE Books (
+    ISBN INT PRIMARY KEY,
+    AuthNo INT,
+    Title VARCHAR(255),
+    Edition VARCHAR(50),
+    Category VARCHAR(50),
+    Price DECIMAL(10, 2),
+    Publisher_id INT,
+    FOREIGN KEY (Publisher_id) REFERENCES Publisher(Publisher_id)
+);
+CREATE TABLE ReserveReturnDate (
+    ReserveDate DATE,
+    ReturnDate DATE,
+    DueDate DATE,
+    User_ID INT,
+    ISBN INT,
+    PRIMARY KEY (User_ID, ISBN),
+    FOREIGN KEY (User_ID) REFERENCES Readers(User_ID),
+    FOREIGN KEY (ISBN) REFERENCES Books(ISBN)
+);
+CREATE TABLE Reports (
+    Reg_no INT PRIMARY KEY,
+    User_id INT,
+    Book_No INT,
+    IssueReturn VARCHAR(50),
+    Staff_id INT,
+    FOREIGN KEY (User_id) REFERENCES Readers(User_ID),
+    FOREIGN KEY (Book_No) REFERENCES Books(ISBN),
+    FOREIGN KEY (Staff_id) REFERENCES Staff(Staff_id)
+);
+
+INSERT INTO AuthenticationSystem (LoginId, Password) VALUES
+(1, 'admin123'), (2, 'staff456');
+
+INSERT INTO Staff (Staff_id, Name, LoginId) VALUES
+(101, 'Alice', 1),
+(102, 'Bob', 2);
+
+INSERT INTO Readers (User_ID, Firstname, Lastname, Email, Phone_no, Address, Name) VALUES
+(201, 'John', 'Doe', 'john@example.com', '1234567890', '123 Lane St', 'John Doe'),
+(202, 'Jane', 'Smith', 'jane@example.com', '0987654321', '456 Oak Ave', 'Jane Smith');
+
+INSERT INTO Publisher (Publisher_id, Name, YearOfPublication) VALUES
+(301, 'Penguin', 2020),
+(302, 'O\'Reilly', 2021);
+
+INSERT INTO Books (ISBN, AuthNo, Title, Edition, Category, Price, Publisher_id) VALUES
+(1111, 101, 'C Programming', '3rd', 'Programming', 45.99, 301),
+(1112, 102, 'SQL Basics', '1st', 'Database', 39.50, 302);
+
+INSERT INTO ReserveReturnDate (ReserveDate, ReturnDate, DueDate, User_ID, ISBN) VALUES
+('2025-04-01', '2025-04-10', '2025-04-15', 201, 1111),
+('2025-04-03', NULL, '2025-04-18', 202, 1112);
+
+INSERT INTO Reports (Reg_no, User_id, Book_No, IssueReturn, Staff_id) VALUES
+(1, 201, 1111, 'Issue', 101),
+(2, 202, 1112, 'Issue', 102);
+
+-- 1. All books reserved by each reader
+SELECT R.Firstname, R.Lastname, B.Title, RR.ReserveDate
+FROM Readers R
+JOIN ReserveReturnDate RR ON R.User_ID = RR.User_ID
+JOIN Books B ON RR.ISBN = B.ISBN;
+
+-- 2. Books published by 'Penguin'
+SELECT B.Title, B.Edition
+FROM Books B
+JOIN Publisher P ON B.Publisher_id = P.Publisher_id
+WHERE P.Name = 'Penguin';
+
+-- 3. Staff and number of books issued
+SELECT S.Name, COUNT(*) AS IssuedBooks
+FROM Staff S
+JOIN Reports R ON S.Staff_id = R.Staff_id
+GROUP BY S.Name;
+
+-- 4. Readers who haven't returned books
+SELECT R.Firstname, R.Lastname, B.Title
+FROM Readers R
+JOIN ReserveReturnDate RR ON R.User_ID = RR.User_ID
+JOIN Books B ON RR.ISBN = B.ISBN
+WHERE RR.ReturnDate IS NULL;
+
+CREATE VIEW book_price_category_view AS
+SELECT 
+    ISBN, Title, Category, Price,
+    CASE
+        WHEN Price < 30 THEN 'Low'
+        WHEN Price BETWEEN 30 AND 60 THEN 'Medium'
+        ELSE 'High'
+    END AS PriceRange
+FROM Books;
+
+CREATE VIEW book_publisher_view AS
+SELECT b.ISBN, b.Title, b.Category, b.Price, p.Name AS PublisherName
+FROM Books b
+JOIN Publisher p ON b.Publisher_id = p.Publisher_id;
+
+CREATE VIEW publisher_book_count_view AS
+SELECT p.Publisher_id, p.Name AS PublisherName, COUNT(b.ISBN) AS TotalBooks
+FROM Publisher p
+JOIN Books b ON p.Publisher_id = b.Publisher_id
+GROUP BY p.Publisher_id, p.Name;
+
+CREATE VIEW reader_book_view AS
+SELECT r.User_ID, r.Firstname, r.Lastname, b.Title, rr.ReserveDate
+FROM Readers r
+JOIN ReserveReturnDate rr ON r.User_ID = rr.User_ID
+JOIN Books b ON rr.ISBN = b.ISBN;
+
+CREATE VIEW reader_contact_view AS
+SELECT User_ID, CONCAT(Firstname, ' ', Lastname) AS FullName, Email, Phone_no
+FROM Readers;
+
+CREATE VIEW staff_transaction_view AS
+SELECT s.Staff_id, s.Name AS StaffName, rp.IssueReturn, b.Title AS BookTitle, rp.User_id
+FROM Reports rp
+JOIN Staff s ON rp.Staff_id = s.Staff_id
+JOIN Books b ON rp.Book_No = b.ISBN;
