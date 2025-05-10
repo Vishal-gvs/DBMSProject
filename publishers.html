@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishers - Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">LibSys</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="readers.html">Readers</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="publishers.html" class="active">Publishers</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Publisher Information</h1>
+            <p>Details about book publishers and their contributions.</p>
+        </header>
+
+        <section class="section" id="all-publishers">
+            <h2>All Publishers</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Publisher ID</th>
+                        <th>Name</th>
+                        <th>Year of Publication (Example)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Publisher ID">301</td>
+                        <td data-label="Name">Penguin</td>
+                        <td data-label="Year of Publication">2020</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Publisher ID">302</td>
+                        <td data-label="Name">O'Reilly</td>
+                        <td data-label="Year of Publication">2021</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="books-by-penguin">
+            <h2>Books Published by 'Penguin' (Query 2)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Edition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Title">C Programming</td>
+                        <td data-label="Edition">3rd</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="publisher-book-count">
+            <h2>Publisher Book Count (View: publisher_book_count_view)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Publisher ID</th>
+                        <th>Publisher Name</th>
+                        <th>Total Books</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Publisher ID">301</td>
+                        <td data-label="Publisher Name">Penguin</td>
+                        <td data-label="Total Books">1</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Publisher ID">302</td>
+                        <td data-label="Publisher Name">O'Reilly</td>
+                        <td data-label="Total Books">1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LibSys - Library Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">LibSys</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html" class="active">Books</a></li>
+            <li><a href="readers.html">Readers</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="publishers.html">Publishers</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Book Collection</h1>
+            <p>Browse and manage the library's book inventory.</p>
+        </header>
+
+        <section class="section" id="all-books">
+            <h2>All Books</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Author No</th>
+                        <th>Edition</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Publisher ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="ISBN">1111</td>
+                        <td data-label="Title">C Programming</td>
+                        <td data-label="Author No">101</td>
+                        <td data-label="Edition">3rd</td>
+                        <td data-label="Category">Programming</td>
+                        <td data-label="Price">$45.99</td>
+                        <td data-label="Publisher ID">301</td>
+                    </tr>
+                    <tr>
+                        <td data-label="ISBN">1112</td>
+                        <td data-label="Title">SQL Basics</td>
+                        <td data-label="Author No">102</td>
+                        <td data-label="Edition">1st</td>
+                        <td data-label="Category">Database</td>
+                        <td data-label="Price">$39.50</td>
+                        <td data-label="Publisher ID">302</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="book-price-category">
+            <h2>Book Price Categories (View: book_price_category_view)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Price Range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="ISBN">1111</td>
+                        <td data-label="Title">C Programming</td>
+                        <td data-label="Category">Programming</td>
+                        <td data-label="Price">$45.99</td>
+                        <td data-label="Price Range">Medium</td>
+                    </tr>
+                    <tr>
+                        <td data-label="ISBN">1112</td>
+                        <td data-label="Title">SQL Basics</td>
+                        <td data-label="Category">Database</td>
+                        <td data-label="Price">$39.50</td>
+                        <td data-label="Price Range">Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="book-publisher">
+            <h2>Book Publishers (View: book_publisher_view)</h2>
+             <p>Showing books along with their publisher names.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Publisher Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="ISBN">1111</td>
+                        <td data-label="Title">C Programming</td>
+                        <td data-label="Category">Programming</td>
+                        <td data-label="Price">$45.99</td>
+                        <td data-label="Publisher Name">Penguin</td>
+                    </tr>
+                    <tr>
+                        <td data-label="ISBN">1112</td>
+                        <td data-label="Title">SQL Basics</td>
+                        <td data-label="Category">Database</td>
+                        <td data-label="Price">$39.50</td>
+                        <td data-label="Publisher Name">O'Reilly</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="search">
+            <h2>Search Books</h2>
+            <form style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" placeholder="Search by Title, ISBN, Category..." style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <button type="submit" class="btn">Search</button>
+            </form>
+            </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LibSys - Library Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

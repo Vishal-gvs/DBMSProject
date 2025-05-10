@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">LibSys</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="readers.html">Readers</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="publishers.html">Publishers</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+        </nav>
+
+    <div class="container">
+        <header>
+            <h1>Welcome to LibSys</h1>
+            <p>Your modern solution for managing library resources efficiently.</p>
+        </header>
+
+        <section class="section dashboard-summary">
+            <h2>Quick Overview</h2>
+            <div class="card-container">
+                <div class="card books">
+                    <h3>Total Books</h3>
+                    <p class="card-value">2</p> <p>Diverse collection across various categories.</p>
+                    <a href="books.html" class="btn btn-secondary mt-1">View Books</a>
+                </div>
+                <div class="card readers">
+                    <h3>Registered Readers</h3>
+                    <p class="card-value">2</p> <p>Active members benefiting from our collection.</p>
+                     <a href="readers.html" class="btn btn-secondary mt-1">View Readers</a>
+                </div>
+                <div class="card staff">
+                    <h3>Staff Members</h3>
+                    <p class="card-value">2</p> <p>Dedicated team to assist you.</p>
+                    <a href="staff.html" class="btn btn-secondary mt-1">View Staff</a>
+                </div>
+                <div class="card overdue">
+                    <h3>Books Overdue</h3>
+                    <p class="card-value">1</p> <p>Needs attention for returns.</p>
+                    <a href="reports.html#overdue" class="btn btn-danger mt-1">View Overdue</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section featured-books">
+            <h2>Featured Books</h2>
+            <div class="card-container">
+                 <div class="card">
+                    <h3>C Programming</h3>
+                    <p><strong>Author No:</strong> 101</p>
+                    <p><strong>Edition:</strong> 3rd</p>
+                    <p><strong>Category:</strong> Programming</p>
+                    <p><strong>Price:</strong> $45.99</p>
+                    <p><strong>Publisher:</strong> Penguin</p>
+                </div>
+                <div class="card">
+                    <h3>SQL Basics</h3>
+                    <p><strong>Author No:</strong> 102</p>
+                    <p><strong>Edition:</strong> 1st</p>
+                    <p><strong>Category:</strong> Database</p>
+                    <p><strong>Price:</strong> $39.50</p>
+                    <p><strong>Publisher:</strong> O'Reilly</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section quick-actions">
+            <h2>Quick Actions</h2>
+            <div style="text-align: center;">
+                <a href="books.html#search" class="btn">Search Books</a>
+                <a href="readers.html#register" class="btn btn-secondary">Register New Reader</a>
+                </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LibSys - Library Management System. All rights reserved.</p>
+        <p>Database Project</p>
+    </footer>
+
+    </body>
+</html>

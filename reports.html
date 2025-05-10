@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">LibSys</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="readers.html">Readers</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="publishers.html">Publishers</a></li>
+            <li><a href="reports.html" class="active">Reports</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Library Reports</h1>
+            <p>Overview of library activities and statuses.</p>
+        </header>
+
+        <section class="section" id="general-reports">
+            <h2>General Transaction Reports (Reports Table)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Reg No</th>
+                        <th>User ID</th>
+                        <th>Book No (ISBN)</th>
+                        <th>Issue/Return Status</th>
+                        <th>Staff ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Reg No">1</td>
+                        <td data-label="User ID">201</td>
+                        <td data-label="Book No">1111</td>
+                        <td data-label="Status">Issue</td>
+                        <td data-label="Staff ID">101</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Reg No">2</td>
+                        <td data-label="User ID">202</td>
+                        <td data-label="Book No">1112</td>
+                        <td data-label="Status">Issue</td>
+                        <td data-label="Staff ID">102</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="overdue">
+            <h2>Readers with Unreturned Books (Query 4)</h2>
+             <p>Based on <code>ReserveReturnDate</code> where <code>ReturnDate</code> IS NULL.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Book Title</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="First Name">Jane</td>
+                        <td data-label="Last Name">Smith</td>
+                        <td data-label="Book Title">SQL Basics</td>
+                        <td data-label="Due Date">2025-04-18</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="reservation-details">
+            <h2>Reservation and Return Details (ReserveReturnDate Table)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>ISBN</th>
+                        <th>Reserve Date</th>
+                        <th>Return Date</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="User ID">201</td>
+                        <td data-label="ISBN">1111</td>
+                        <td data-label="Reserve Date">2025-04-01</td>
+                        <td data-label="Return Date">2025-04-10</td>
+                        <td data-label="Due Date">2025-04-15</td>
+                    </tr>
+                    <tr>
+                        <td data-label="User ID">202</td>
+                        <td data-label="ISBN">1112</td>
+                        <td data-label="Reserve Date">2025-04-03</td>
+                        <td data-label="Return Date">NULL (Not Returned)</td>
+                        <td data-label="Due Date">2025-04-18</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LibSys - Library Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

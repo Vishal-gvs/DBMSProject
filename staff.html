@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff - Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">LibSys</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="readers.html">Readers</a></li>
+            <li><a href="staff.html" class="active">Staff</a></li>
+            <li><a href="publishers.html">Publishers</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Staff Management</h1>
+            <p>Information about library staff and their activities.</p>
+        </header>
+
+        <section class="section" id="all-staff">
+            <h2>All Staff Members</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Staff ID</th>
+                        <th>Name</th>
+                        <th>Login ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Staff ID">101</td>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="Login ID">1</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Staff ID">102</td>
+                        <td data-label="Name">Bob</td>
+                        <td data-label="Login ID">2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="staff-issued-books">
+            <h2>Books Issued by Staff (Query 3)</h2>
+             <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Staff Name</th>
+                        <th>Issued Books Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Staff Name">Alice</td>
+                        <td data-label="Issued Books Count">1</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Staff Name">Bob</td>
+                        <td data-label="Issued Books Count">1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="staff-transactions">
+            <h2>Staff Transactions (View: staff_transaction_view)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Staff ID</th>
+                        <th>Staff Name</th>
+                        <th>Transaction Type</th>
+                        <th>Book Title</th>
+                        <th>User ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Staff ID">101</td>
+                        <td data-label="Staff Name">Alice</td>
+                        <td data-label="Transaction Type">Issue</td>
+                        <td data-label="Book Title">C Programming</td>
+                        <td data-label="User ID">201</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Staff ID">102</td>
+                        <td data-label="Staff Name">Bob</td>
+                        <td data-label="Transaction Type">Issue</td>
+                        <td data-label="Book Title">SQL Basics</td>
+                        <td data-label="User ID">202</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+         <section class="section" id="authentication-system">
+            <h2>Authentication System (Conceptual)</h2>
+            <p>This section represents the login credentials stored for staff access. In a real system, this would be securely handled.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Login ID</th>
+                        <th>Password (Hashed/Placeholder)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Login ID">1</td>
+                        <td data-label="Password">******** (admin123)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Login ID">2</td>
+                        <td data-label="Password">******** (staff456)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LibSys - Library Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

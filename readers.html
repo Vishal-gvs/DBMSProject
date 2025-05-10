@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readers - Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">LibSys</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="readers.html" class="active">Readers</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="publishers.html">Publishers</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Reader Management</h1>
+            <p>View and manage library reader information.</p>
+        </header>
+
+        <section class="section" id="all-readers">
+            <h2>All Readers</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone No.</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="User ID">201</td>
+                        <td data-label="First Name">John</td>
+                        <td data-label="Last Name">Doe</td>
+                        <td data-label="Email">john@example.com</td>
+                        <td data-label="Phone No.">1234567890</td>
+                        <td data-label="Address">123 Lane St</td>
+                    </tr>
+                    <tr>
+                        <td data-label="User ID">202</td>
+                        <td data-label="First Name">Jane</td>
+                        <td data-label="Last Name">Smith</td>
+                        <td data-label="Email">jane@example.com</td>
+                        <td data-label="Phone No.">0987654321</td>
+                        <td data-label="Address">456 Oak Ave</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="reader-books">
+            <h2>Reserved Books by Readers (View: reader_book_view)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Book Title</th>
+                        <th>Reserve Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="User ID">201</td>
+                        <td data-label="First Name">John</td>
+                        <td data-label="Last Name">Doe</td>
+                        <td data-label="Book Title">C Programming</td>
+                        <td data-label="Reserve Date">2025-04-01</td>
+                    </tr>
+                    <tr>
+                        <td data-label="User ID">202</td>
+                        <td data-label="First Name">Jane</td>
+                        <td data-label="Last Name">Smith</td>
+                        <td data-label="Book Title">SQL Basics</td>
+                        <td data-label="Reserve Date">2025-04-03</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="reader-contact">
+            <h2>Reader Contact Info (View: reader_contact_view)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone No.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="User ID">201</td>
+                        <td data-label="Full Name">John Doe</td>
+                        <td data-label="Email">john@example.com</td>
+                        <td data-label="Phone No.">1234567890</td>
+                    </tr>
+                    <tr>
+                        <td data-label="User ID">202</td>
+                        <td data-label="Full Name">Jane Smith</td>
+                        <td data-label="Email">jane@example.com</td>
+                        <td data-label="Phone No.">0987654321</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="register">
+            <h2>Register New Reader</h2>
+            <form>
+                <div style="margin-bottom: 10px;">
+                    <label for="firstname" style="display: block; margin-bottom: 5px;">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="lastname" style="display: block; margin-bottom: 5px;">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+                    <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+                 <button type="submit" class="btn">Register Reader</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 LibSys - Library Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
